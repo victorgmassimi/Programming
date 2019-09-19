@@ -11,20 +11,56 @@ public class vector
 
     def magnitud()
     {
-        system.out.println("La magnitud es: " + Math.pow((x*x)+(y+y)+(z*z),.5));
+        return (Math.pow((x*x)+(y+y)+(z*z),.5));
     }
     def sumar(vector v)
     {
-        system.out.println("La suma de los vectores es: (" + x+v.x +","+ y+v.y +","+ z+v.z+")" );
+        vector nuevoVector = new vector();
+        nuevoVector.x = x + v.x;
+        nuevoVector.y = y + v.y;
+        nuevoVector.z = z + v.z;
+        return nuevoVector;
     }
     def productoPunto(vector v)
     {
-        system.out.println("El producto punto es: " + ((x*v.x)+(y*v.y)+(z*v.z)));
+        vector nuevoVector = new vector();
+        nuevoVector.x = x * v.x;
+        nuevoVector.y = y * v.y;
+        nuevoVector.z = z * v.z;
+        return nuevoVector;
     }
     def productoCruz(vector v)
     {   
-        
+        vector nuevoVector = new vector();
+        nuevoVector.x = (y * v.z - z * v.y);
+        nuevoVector.y = (x * v.z - z * v.x);
+        nuevoVector.z = (x * v.y - y * v.x);
+        return nuevoVector;
+    }
+    def imprimirVector()
+    {
+        System.out.println("vector: (" + x + "," + y + "," + z + ')');
+    }
+}
+public class punto
+{
+    float x;
+    float y;
 
+    def distanciaPunto(punto p)
+    {
+        punto nuevoPunto = new punto();
+        nuevoPunto.x = Math.sqrt(Math.pow(x - p.x,2));
+        nuevoPunto.y = Math.sqrt(Math.pow(y - p.y,2));
+        return nuevoPunto;
+    }
+    def putnoMedio(punto p)
+    {
+        punto nuevoPunto = new punto();
+        nuevoPunto = nuevoPunto.distanciaPunto(p);
+        nuevoPunto.x = nuevoPunto.x / 2;
+        nuevoPunto.y = nuevoPunto.y / 2;
+        return nuevoPunto;
     }
 }
 
@@ -32,11 +68,12 @@ public class vector
 
 public class Ej_5
 {
+    public static main()
+    {
 
-    vector v1;
-    vector v2;
+
+    }
+
     
-    v1.sumar(v2);
-    v2.sumar(v1)
 
 }
